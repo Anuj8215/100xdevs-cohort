@@ -1,7 +1,7 @@
 # Dependencies
 node_modules
 package-lock.json
-
+node_modules/zod/src/v3/tests/error.test.ts
 # Environment variables
 .env
 .env.local
