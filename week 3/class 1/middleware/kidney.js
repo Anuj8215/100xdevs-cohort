@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 
 app.get("/health-checkup", function (req, res) {
   const username = req.header.username;
