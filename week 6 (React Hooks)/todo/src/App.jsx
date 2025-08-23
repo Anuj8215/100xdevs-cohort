@@ -1,50 +1,58 @@
-import { useState } from "react";
-let GLOBAL_ID = 4;
+import React from 'react';
+import { useState } from 'react';
 function App() {
-  const [todos, setTodos] = useState([
+  // State for todos
+  const [todos, setTodo] = useState([
     {
       id: 1,
-      title: "Go to gym",
-      description: "Need to hit the gym from 7-9PM",
+      title: "Learn React",
+      description: "Learn React from scratch",
     },
     {
       id: 2,
-      title: "Go to Clas",
-      description: "Need to go to the class from 4-7 PM",
+      title: "Learn React",
+      description: "Learn React from Youtube",
     },
     {
       id: 3,
-      title: "Eat foor",
-      description: "Need to eat food from 2-4 PM",
-    },
+      title: "Learn React",
+      description: "Learn React from Udemy",
+    }
   ]);
 
+  // Function to add a new todo
   function addTodo() {
-    setTodos([
+    setTodo([
       ...todos,
       {
-        id: GLOBAL_ID++,
-        title: "new todo",
-        description: "new todo desc",
-      },
+        id: Math.random(),
+        title: Math.random(),
+        description: Math.random()
+      }
     ]);
   }
 
+  // Render the UI
   return (
     <div>
-      <button onClick={addTodo}>Add todo</button>
-      {todos.map((todo, index) => (
-        <Todo key={todo.id} title={todo.title} description={todo.description} />
+      <button onClick={addTodo}>Add Todo</button>
+
+      {todos.map((todo) => (
+        <Todo
+          key={todo.id}
+          title={todo.title}
+          description={todo.description}
+        />
       ))}
     </div>
   );
 }
-
+// Todo component
 function Todo({ title, description }) {
   return (
     <div>
-      <h1>{title}</h1>
-      <h4>{description}</h4>
+      <h3>{title}</h3>
+      <p>{description}</p>
     </div>
   );
 }

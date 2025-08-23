@@ -28,34 +28,39 @@
 // export default App;
 
 //-------------- Pushing Down The State ------------------//
-import React from "react";
-import { useState } from "react";
+// import React from "react";
+// import { useState } from "react";
 
-function App() {
-  return (
-    <div>
-      <HeaderWithButton />
-      <Header title="Anuj Pawar"></Header>
-      <Header title="Aarya"></Header>
-    </div>
-  );
+// function App() {
+//   return (
+//     <div>
+//       <HeaderWithButton />
+//       <Header title="Anuj Pawar"></Header>
+//       <Header title="Aarya"></Header>
+//     </div>
+//   );
 
-  function HeaderWithButton() {
-    const [title, setTitle] = useState("My name is Anuj");
+//   function HeaderWithButton() {
+//     const [title, setTitle] = useState("My name is Anuj");
 
-    function updateTitle() {
-      setTitle("My name is " + Math.random());
-    }
-    return (
-      <div>
-        <button onClick={updateTitle}>Update the title</button>
-        <Header title={title}></Header>
-      </div>
-    );
-  }
-}
-const Header = React.memo(function Header({ title }) {
-  return <div>{title}</div>;
-});
+//     function updateTitle() {
+//       setTitle("My name is " + Math.random());
+//     }
+//     return (
+//       <div>
+//         <button onClick={updateTitle}>Update the title</button>
+//         <Header title={title}></Header>
+//       </div>
+//     );
+//   }
+// }
+// const Header = React.memo(function Header({ title }) {
+//   return <div>{title}</div>;
+// });
 
-export default App;
+// export default App;
+
+
+//--------------------Basic of Hooks------------------//
+
+
