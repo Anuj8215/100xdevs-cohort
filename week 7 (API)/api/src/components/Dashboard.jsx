@@ -1,5 +1,3 @@
-export function Dashboard() {  
-    return <div>
-        This is the Dashboard Page
-        </div>
+export default function Dashboard() {
+  return <div>This is the Dashboard Page</div>;
 }
