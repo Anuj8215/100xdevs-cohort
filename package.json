@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "recoil": "^0.7.7",
     "zod": "^4.0.14"
   }
 }
