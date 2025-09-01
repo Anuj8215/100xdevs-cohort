@@ -105,7 +105,7 @@
 //     </BrowserRouter>
 //   );
 // }
-// //NOTE - Created a separate component for Navigation Buttons
+//NOTE - Created a separate component for Navigation Buttons
 // function NavButtons() {
 //   const navigate = useNavigate(); // used to navigate programmatically
 //   return (
@@ -123,25 +123,66 @@
 // export default App;
 
 //--------------------------Prop Drilling--------------------------//
+// import { useState } from "react";
+// function App() {
+//   const [counterValue, setCounterValue] = useState(0);
+//   return (
+//     <div>
+//       <Count value={counterValue} />
+//       <Buttons value={counterValue} updateValue={setCounterValue} />
+//     </div>
+//   );
+// }
+// function Count({ value }) {
+//   return <div>{value}</div>;
+// }
+// function Buttons({ value, updateValue }) {
+//   return (
+//     <>
+//       <button onClick={() => updateValue(value + 1)}>Increment</button>
+//       <button onClick={() => updateValue(value - 1)}>Decrement</button>
+//     </>
+//   );
+// }
+// export default App;
+//--------------------------Context API For Prop Drilling--------------------------//
 import { useState } from "react";
+import { CountContext } from "./components/context";
+
 function App() {
-  const [counterValue, setCounterValue] = useState(0);
+  const [count, setCount] = useState(0);
+
+  //NOTE - Wrap anyone that wants to use the teleported value inside the provider
   return (
     <div>
-      <Count value={counterValue} />
-      <Buttons value={counterValue} updateValue={setCounterValue} />
+    <CountContext.provider value={count}>
+    <Count count={count} setCount={setCount} />
+    </CountContext.provider>
+      
     </div>
   );
 }
-function Count({ value }) {
-  return <div>{value}</div>;
-}
-function Buttons({ value, updateValue }) {
+
+function Count({ count, setCount }) {
   return (
-    <>
-      <button onClick={() => updateValue(value + 1)}>Increment</button>
-      <button onClick={() => updateValue(value - 1)}>Decrement</button>
-    </>
+    <div>
+      <CountRenderer count={count} />
+      <Buttons count={count} setCount={setCount} />
+    </div>
   );
 }
+
+function CountRenderer({ count }) {
+  return <div>{count}</div>;
+}
+
+function Buttons({ count, setCount }) {
+  return (
+    <div>
+      <button onClick={() => { setCount(count + 1); }} > {" "} Increase{" "} </button>
+      <button onClick={() => { setCount(count - 1); }} > {" "} Decrease{" "} </button>
+    </div>
+  );
+}
+
 export default App;
