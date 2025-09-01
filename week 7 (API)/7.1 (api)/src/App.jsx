@@ -145,43 +145,69 @@
 //   );
 // }
 // export default App;
-//--------------------------Context API For Prop Drilling--------------------------//
-import { useState } from "react";
-import { CountContext } from "./components/context";
+//--------------------------Profile Generator Application--------------------------//
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { RecoilRoot } from "recoil";
+import "./App.css";
+
+// Lazy load components for better performance
+const ProfileGenerator = lazy(() => import("./components/ProfileGenerator"));
+const Landing = lazy(() => import("./components/Landing"));
+const Dashboard = lazy(() => import("./components/Dashboard"));
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  //NOTE - Wrap anyone that wants to use the teleported value inside the provider
   return (
-    <div>
-    <CountContext.provider value={count}>
-    <Count count={count} setCount={setCount} />
-    </CountContext.provider>
-      
-    </div>
+    <RecoilRoot>
+      <BrowserRouter>
+        <div className="app">
+          <NavButtons />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<div className="loading">Loading...</div>}>
+                  <Landing />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <Suspense fallback={<div className="loading">Loading...</div>}>
+                  <ProfileGenerator />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <Suspense fallback={<div className="loading">Loading...</div>}>
+                  <Dashboard />
+                </Suspense>
+              }
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 
-function Count({ count, setCount }) {
+function NavButtons() {
+  const navigate = useNavigate();
   return (
-    <div>
-      <CountRenderer count={count} />
-      <Buttons count={count} setCount={setCount} />
-    </div>
-  );
-}
-
-function CountRenderer({ count }) {
-  return <div>{count}</div>;
-}
-
-function Buttons({ count, setCount }) {
-  return (
-    <div>
-      <button onClick={() => { setCount(count + 1); }} > {" "} Increase{" "} </button>
-      <button onClick={() => { setCount(count - 1); }} > {" "} Decrease{" "} </button>
-    </div>
+    <nav className="nav-buttons">
+      <button onClick={() => navigate("/")} className="nav-btn">
+        Home
+      </button>
+      <button onClick={() => navigate("/profile")} className="nav-btn">
+        Profile Generator
+      </button>
+      <button onClick={() => navigate("/dashboard")} className="nav-btn">
+        Dashboard
+      </button>
+    </nav>
   );
 }
 
