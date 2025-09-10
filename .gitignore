@@ -1,6 +1,18 @@
+# Ignore all files by default
+*
+*/
+*/*/
+
+# But track these specifically
+!.gitignore
+!*/.gitignore
+!*/src/
+!*/src/**
+
 # Node related
 node_modules/
 package-lock.json
+package.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -10,6 +22,10 @@ dist/
 dist-ssr/
 build/
 coverage/
+
+# Documentation
+README.md
+*.md
 
 # Environment variables
 .env
@@ -36,18 +52,6 @@ Thumbs.db
 harkirat/
 notes/
 assignments/
-
-# Keep the important React files
-!*/src/
-!*/src/**
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Project specific
-harkirat/
-notes/
 assignments/
 
 # Keep essential files
