@@ -6,8 +6,16 @@
 # But track these specifically
 !.gitignore
 !*/.gitignore
+
+# Keep essential code files
 !*/src/
 !*/src/**
+!*/**.js
+!*/**.jsx
+!*/**.ts
+!*/**.tsx
+!*/**.html
+!*/**.css
 
 # Node related
 node_modules/
@@ -52,14 +60,3 @@ Thumbs.db
 harkirat/
 notes/
 assignments/
-assignments/
-
-# Keep essential files
-!*/src/
-!*/src/**
-!*/**.js
-!*/**.jsx
-!*/**.ts
-!*/**.tsx
-!*/**.html
-!*/**.css
