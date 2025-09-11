@@ -2,5 +2,10 @@
   "dependencies": {
     "recoil": "^0.7.7",
     "zod": "^4.0.14"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
   }
 }

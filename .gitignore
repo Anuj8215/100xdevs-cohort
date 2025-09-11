@@ -1,62 +1,16 @@
-# Ignore all files by default
-*
-*/
-*/*/
-
-# But track these specifically
-!.gitignore
-!*/.gitignore
-
-# Keep essential code files
-!*/src/
-!*/src/**
-!*/**.js
-!*/**.jsx
-!*/**.ts
-!*/**.tsx
-!*/**.html
-!*/**.css
-
-# Node related
-node_modules/
-package-lock.json
-package.json
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Build related
-dist/
-dist-ssr/
-build/
-coverage/
-
-# Documentation
-README.md
-*.md
-
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Project specific ignores
+node_modules
 harkirat/
-notes/
 assignments/
+assignment/
+.DS_Store
+.env
+.vscode/
+.idea/
+*.log
+dist/
+build/
+7.3
+package-lock.json
+yarn.lock
+package.json
+.env

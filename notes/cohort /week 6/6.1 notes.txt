@@ -1,0 +1,44 @@
+Notes for week 6, session 1
+
+Use States, 
+
+To reduce rendering we have used the method to push down the state,
+use itlike a tree if you have a component that has a lot of children
+and you want to pass the state down
+
+// Topic 
+React.memo 
+This is a higher order component that will only re-render if the props change.
+
+//Topic 
+Keys in react 
+
+Keys help react identify which items have changed, are added, or are removed.
+ Keys should be given to the elements inside the array to give the elements a stable identity.
+When you don't specify a key, React will use the array index as the key by default.
+However, this can lead to issues when the order of items changes, as React may not correctly 
+identify which items have been modified.
+
+//Topic
+.map()  function
+The map() method creates a new array populated with the results of calling a provided function on every
+element in the calling array.
+
+//Topic 
+Wrapper Component = A wrapper component is a component that wraps around other components to provide additional functionality or styling.
+function App() {
+  return (
+    <div>
+      <CardWrapper>Hi There</CardWrapper>
+    </div>
+  );
+}
+
+function CardWrapper({ children }) {
+  return (
+    <div style={{ border: "2px solid white ", padding: 20 }}>
+      {children}
+    </div>
+  );
+}
+export default App;

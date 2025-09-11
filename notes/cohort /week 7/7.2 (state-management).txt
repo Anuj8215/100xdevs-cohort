@@ -1,0 +1,39 @@
+//SECTION - State Management
+
+Things to Learn in Recoil :
+RecoilRoot
+Atoms
+userecoilState
+useRecoilValue
+useSetRecoilState
+Selectors
+
+
+//NOTE - Atoms
+In simple words atoms are pieces of state.
+Atoms can be read from and written to from any component.
+When an atom is updated, each component that subscribes to that atom is re-rendered with the new value.
+import {atom} from "recoil";
+
+const atom = atom({
+    key:"countAtom",
+    default:0
+})
+this code creates an atom with key "countAtom" and default value 0. which is necesary to create an atom.
+
+//NOTE - Selectors
+Selectors are pure functions that accept atoms or other selectors as input.
+The output of a selector is derived from the input.
+Syntax:
+import {selector} from "recoil";
+const selector = selector({
+    key:"selectorKey",
+    get:({get})=>{
+        const count = get(atom);
+        return count*2;
+    }
+}) 
+Explanation : 
+This code creates a selector with key "selectorKey".
+The get function takes an object with a get property, which is a function that can be used to read the value of an atom or another selector.
+In this example, the selector reads the value of the atom and returns double its value.

@@ -1,0 +1,31 @@
+The Topic Which We Will Cover Today Are : useRef, useState, useEffect, reconcilliation, re-rendering, useMemo, useCallback
+
+Topic 1 : Reconcilliation
+Reconcilliation is the process through which React updates the DOM.
+When a component's state or props change, React needs to determine what has changed in order to update the DOM efficiently.
+This process involves comparing the new virtual DOM with the previous virtual DOM and making the necessary updates to the actual DOM.
+
+Topic 2 : useEffect
+The useEffect hook is used to perform side effects in functional components. Side effects can include data fetching, subscriptions, or manually changing the DOM.
+The useEffect hook takes two arguments: a function that contains the side effect logic and an optional dependency array.
+The function will be executed after the component renders. If the dependency array is provided, the effect will only run when one of the dependencies changes.
+
+syntax:
+useEffect(() => {
+  // Side effect logic here
+}, [dependencies]);
+
+Topic 3 : useCallback
+The useCallback hook is used to memoize functions in functional components. It returns a memoized version of the callback function that only changes if one of the dependencies has changed.
+This is useful for optimizing performance, especially when passing functions as props to child components that may cause unnecessary re-renders.
+
+Basic syntax:
+const memoizedCallback = useCallback(() => {
+  // Function logic here
+}, [dependencies]);
+
+Topic 4 : useRef
+Used to acces a dom element directly
+It can also be used to keep a mutable variable which does not cause re-render when updated
+syntax:
+const refContainer = useRef(initialValue);

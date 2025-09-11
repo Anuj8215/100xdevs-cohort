@@ -1,0 +1,48 @@
+//NOTE - TOPICS : Recoil, Aom 
+
+Recoil - 
+
+If we want to use any recoil hook we need to wrap our app in RecoilRoot component.
+
+Recoil State hook - useRecoilState() - It is similar to useState hook. It returns a tuple of current state value and a function to update it.
+Recoil Value hook - useRecoilValue() - It is similar to useContext hook. It returns the current value of the state. It does not provide a way to update the state.
+
+Difference between useRecoilState and useRecoilValue -
+1. useRecoilState returns a tuple of current state value and a function to update it
+2. useRecoilValue returns only the current value of the state.
+3. useRecoilState is used when we want to read and write the state
+4. useRecoilValue is used when we want to read the state only.
+To update the state when using useRecoilValue, we can use useSetRecoilState hook. It returns a function that can be used to update the state.
+Example -
+const setState = useSetRecoilState(atom);
+setState(newValue);
+
+Complete Syntax :
+const [state, setState] = useRecoilState(atom);
+
+//NOTE - Selectors
+In simple words selectors take atoms as input and return derived state as output.
+selectors can also take other selectors as input.
+const selector = selector({
+  key: 'selectorKey',
+  get: ({get}) => {
+    const atomValue = get(atom);
+    return derivedValue;
+  },
+  set: ({set}, newValue) => {
+    set(atom, newValue);
+  }
+});
+
+//NOTE - useRecoilState
+In simple words useRecoilState is a hook that allows us to read and write the state of an atom or selector.
+const [state, setState] = useRecoilState(atomOrSelector);
+
+
+//SECTION - Asynchronous Data Queries
+in simple words, we can use selectors to fetch data from an API and store it in an atom.
+We can use the get function to fetch data from an API and return the data as the value of the selector.
+Example -
+const asyncSelector = selector({    
+    
+})

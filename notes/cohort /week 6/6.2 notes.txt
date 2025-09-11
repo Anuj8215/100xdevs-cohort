@@ -1,0 +1,69 @@
+This covering today : useEffect,useMemo, useCallback, custom hooks, prop drills.
+
+Two jargons : sideEffects, hooks
+
+Topic 1 : sideEffects
+- anything that happens outside of the component is called sideEffects.
+eg : setTimeout,
+     fetch ,
+full syntax : The Full syntax of sideEffects is - setTimeout(() => {
+  // code here
+}, delayInMilliseconds);
+- sideEffects can be handled using useEffect hook.
+
+
+
+
+
+Topic 2 : hooks
+- hooks are special functions that let you "hook into" react features. 
+- hooks always start with "use"
+- hooks can only be called at the top level of a component or custom hook.
+eg : useState, useEffect, useMemo, useCallback
+
+1 : useEffect - Is used to perform side effects in function components.
+- useEffect takes two arguments : a function and a dependency array.
+- the function is called only after the component renders 
+Basic syntax :
+useEffect(() => {
+  // side effect code here
+}, [dependencies]); The dependency array runs the effect only when the dependencies change.
+- if the dependency array is empty, the effect runs only once after the initial render.
+
+Topic 3 : useMemo - A React Hook that remembers a computed value so it doesn’t get recalculated every render.
+code - const cachedValue = useMemo(() => {
+  return heavyCalculation(num);
+}, [num]);
+- useMemo takes two arguments : a function that returns a value and a dependency array.
+- the function is called only when the dependencies change.
+- useMemo is used to optimize performance by memoizing expensive calculations.
+- not mostly used, useEffect is more commonly used.
+
+The Difference between useMemo and useEffect :
+- useMemo returns a memoized value.
+- useEffect does not return a value, it is used for side effects.
+
+
+Topic 4 : useCallback 
+ useCallback in one line:
+It remembers a function, so React doesn’t create it again on every re-render.
+
+🏠 Real-life example:
+Imagine you give your friend your Wi-Fi password.
+
+Without useCallback: every time you see them, you keep writing a new copy of the password.
+
+With useCallback: you just reuse the same piece of paper until the password actually changes.
+
+Basic syntax :
+const memoizedCallback = useCallback(() => {
+  doSomething(a, b);
+}, [a, b]);
+- useCallback takes two arguments : a function and a dependency array.
+- the function is called only when the dependencies change.
+- useCallback is used to optimize performance by memoizing functions.
+
+Topic 5 : custom hooks
+- custom hooks are functions that start with "use" and can call other hooks.
+- custom hooks are used to share logic between components.
+eg : useFetch, useLocalStorage
