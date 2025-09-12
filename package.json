@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "dotenv": "^17.2.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodeman": "^1.1.2",
     "recoil": "^0.7.7",
     "zod": "^4.0.14"
   },

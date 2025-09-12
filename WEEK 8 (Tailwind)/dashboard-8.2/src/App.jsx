@@ -23,3 +23,20 @@ export default App;
 
 */
 
+import React from "react";
+import "./index.css";
+import { RevenueCard } from "./components/RevenueCard";
+
+function App() {
+  return (
+    <>
+      <RevenueCard
+        title={"Total Revenue"}
+        orderCount={345}
+        amount={"$23,456"}
+      />
+    </>
+  );
+}
+
+export default App;
