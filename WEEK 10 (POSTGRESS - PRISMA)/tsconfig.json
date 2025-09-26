@@ -1,0 +1,45 @@
+{
+    "compilerOptions": {
+        "module": "nodenext",
+        "target": "esnext",
+        "moduleResolution": "nodenext",
+        "lib": [
+            "esnext"
+        ],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "allowJs": false,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noUncheckedIndexedAccess": true,
+        "noEmitOnError": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "strictBindCallApply": true,
+        "noFallthroughCasesInSwitch": true,
+        "incremental": true,
+        "outDir": "dist",
+        "rootDir": "src",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "src/scripts/faker",
+        "src/controllers/dist",
+        "src/test",
+        "dist",
+        ".git",
+        "src/org/encryption",
+        "**/node_modules/**",
+        "**/dist/**"
+    ]
+}
